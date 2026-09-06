@@ -30,6 +30,10 @@ const authLimiter = rateLimit({
 });
 app.use("/api/auth", authLimiter);
 
+app.get("/", (req, res) => {
+  res.json({ message: "Akkel Ali Complex API", health: "/api/health" });
+});
+
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 
 app.use("/api/auth", authRoutes);
